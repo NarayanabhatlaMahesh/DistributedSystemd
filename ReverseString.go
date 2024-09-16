@@ -1,21 +1,12 @@
 package main
 
-import (
-	"fmt"
-)
-
-func reverseString(input string) string {
-	runes := []rune(input)
-	for left, right := 0, len(runes)-1; left < right; left, right = left+1, right-1 {
-		runes[left], runes[right] = runes[right], runes[left]
-	}
-	return string(runes)
-}
+import "fmt"
 
 func main() {
-	var userInput string
-	fmt.Println("Enter a string to reverse:")
-	fmt.Scanln(&userInput)
-	reversedString := reverseString(userInput)
-	fmt.Println("Reversed string:", reversedString)
+	s := "Hello, World!"
+	b := []byte(s)
+	for i, j := 0, len(b)-1; i < j; i, j = i+1, j-1 {
+		b[i], b[j] = b[j], b[i]
+	}
+	fmt.Println(string(b))
 }
